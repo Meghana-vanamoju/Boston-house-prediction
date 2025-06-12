@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Boston Housing Price Prediction</title>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f2f6ff;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+        }
+
+        form {
+            background-color: #ffffff;
+            padding: 30px 40px;
+            border-radius: 15px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 500px;
+        }
+
+        h2 {
+            text-align: center;
+            color: #333;
+            margin-bottom: 25px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 6px;
+            color: #333;
+            font-weight: bold;
+        }
+
+        input[type="number"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 18px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            font-size: 14px;
+        }
+
+        input[type="submit"] {
+            background-color: #4CAF50;
+            color: white;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 16px;
+            width: 100%;
+            transition: background-color 0.3s;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #45a049;
+        }
+
+        h3 {
+            text-align: center;
+            color: #2d3748;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <form action="/predict" method="post">
+        <h2>Boston Housing Price Prediction</h2>
+
+        <label>CRIM:</label>
+        <input type="number" name="CRIM" step="any" placeholder="Enter CRIM value">
+
+        <label>ZN:</label>
+        <input type="number" name="ZN" step="any" placeholder="Enter ZN value">
+
+        <label>INDUS:</label>
+        <input type="number" name="INDUS" step="any" placeholder="Enter INDUS value">
+
+        <label>CHAS:</label>
+        <input type="number" name="CHAS" step="any" placeholder="Enter CHAS (0 or 1)">
+
+        <label>NOX:</label>
+        <input type="number" name="NOX" step="any" placeholder="Enter NOX value">
+
+        <label>RM:</label>
+        <input type="number" name="RM" step="any" placeholder="Enter RM value">
+
+        <label>AGE:</label>
+        <input type="number" name="AGE" step="any" placeholder="Enter AGE value">
+
+        <label>DIS:</label>
+        <input type="number" name="DIS" step="any" placeholder="Enter DIS value">
+
+        <label>RAD:</label>
+        <input type="number" name="RAD" step="any" placeholder="Enter RAD value">
+
+        <label>TAX:</label>
+        <input type="number" name="TAX" step="any" placeholder="Enter TAX value">
+
+        <label>PTRATIO:</label>
+        <input type="number" name="PTRATIO" step="any" placeholder="Enter PTRATIO value">
+
+        <label>B:</label>
+        <input type="number" name="B" step="any" placeholder="Enter B value">
+
+        <label>LSTAT:</label>
+        <input type="number" name="LSTAT" step="any" placeholder="Enter LSTAT value">
+
+        <input type="submit" value="Predict">
+
+        {% if prediction_text %}
+            <h3>{{ prediction_text }}</h3>
+        {% endif %}
+    </form>
+</body>
+</html>
